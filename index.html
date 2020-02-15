@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>STUDENT LIST</title>
+  </head>
+  <body class="index">
+    <template class="temp">
+      <article class="student_wrapper">
+        <div class="wrapper">
+          <h1>Student: <span class="name"></span></h1>
+          <h2>House: <span class="house"></span></h2>
+        </div>
+      </article>
+    </template>
+    <header>
+      <h1 class="heading">Student list</h1>
+      <nav class="sort_mobile">
+        <select>
+          <option value="Alle" class="option">Choose house &nbsp;&nbsp;</option>
+          <option value="Gryffindor" class="option">Gryffindor</option>
+          <option value="Hufflepuff" class="option">Hufflepuff</option>
+          <option value="Ravenclaw" class="option">Ravenclaw</option>
+          <option value="Slytherin" class="option">Slytherin</option>
+        </select>
+      </nav>
+
+      <nav class="sort">
+        <ul>
+          <li class="filter alle" data-kategori="Alle">All students</li>
+          <li class="filter" data-kategori="Gryffindor">Gryffindor</li>
+          <li class="filter" data-kategori="Hufflepuff">Hufflepuff</li>
+          <li class="filter" data-kategori="Ravenclaw">Ravenclaw</li>
+          <li class="filter" data-kategori="Slytherin">Slytherin</li>
+        </ul>
+      </nav>
+    </header>
+    <section id="student_list"></section>
+
+    <section data-theme="" class="popup hide">
+      <div class="close">✕</div>
+      <article class="popup_wrapper">
+        <figure>
+          <img src="billeder/harry.jpg" alt="Harry Potter" class="image" />
+          <figcaption class="caption"></figcaption>
+        </figure>
+        <div class="flex">
+          <div class="text_wrapper">
+            <p>Name:</p>
+            <h1 class="pop_name"></h1>
+          </div>
+          <div class="text_wrapper">
+            <p>House:</p>
+            <h2 class="pop_house"></h2>
+          </div>
+          </div>
+          <div class="pic">
+            <img src="" alt="" class="crest" />
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
