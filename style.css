@@ -162,9 +162,12 @@ select {
   font-size: 1.4rem;
 }
 .pop_name,
-.pop_house {
+.pop_house,
+.pop_nick,
+.pop_gender {
   font-weight: 100;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  padding-left: 5vw;
 }
 .pic {
   text-align: right;
@@ -202,11 +205,6 @@ figure {
   right: 2rem;
   font-size: 2.5rem;
   cursor: pointer;
-}
-
-.pop_name,
-.pop_house {
-  padding-left: 5vw;
 }
 
 .chosen {
