@@ -32,9 +32,7 @@ function start() {
   HTML.sortButtons.forEach(element => {
     element.addEventListener("click", sort);
   });
-  document.querySelector("select").addEventListener("change", function() {
-    selectSort();
-  });
+  selectSort();
   close();
   fetchJson();
 }
@@ -147,7 +145,7 @@ function fetchHouses() {
 
 function sort() {
   //console.log("sort");
-  HTML.SortButtons.forEach(button => {
+  HTML.sortButtons.forEach(button => {
     button.classList.remove("chosen");
   });
   this.classList.add("chosen");
@@ -158,6 +156,7 @@ function selectSort() {
   document.querySelector("select").addEventListener("change", function() {
     HTML.filter = event.target.value;
     fetchJson();
+    console.log("change");
   });
 }
 
