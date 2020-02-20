@@ -1,11 +1,8 @@
-//let HTML.filter = "Alle";
+"use strict";
+window.addEventListener("DOMContentLoaded", init);
 
 const HTML = {};
-//let HTML.SortButtons = document.querySelectorAll(".filter");
-//const HTML.jsonUrl = "https://petlatkea.dk/2020/hogwarts/students.json";
-//let studentObject;
-
-window.addEventListener("DOMContentLoaded", init);
+const allStudents = [];
 
 const Student = {
   firstName: "",
@@ -16,7 +13,6 @@ const Student = {
   theHouse: "",
   fullName: ""
 };
-const allStudents = [];
 
 function init() {
   HTML.jsonUrl = "https://petlatkea.dk/2020/hogwarts/students.json";
@@ -34,97 +30,74 @@ function start() {
   });
   selectSort();
   close();
-  fetchJson();
+  //calls the async function with the jsonUrl and the function that should be called after the async,.
+  fetchJson(HTML.jsonUrl, makeObjects);
 }
-
-async function fetchJson() {
+//Uses the url parameter, so the url can change depending on the calling function.
+//Callback is called with the variable that is the json, which is sent on to the next function.
+async function fetchJson(url, callback) {
   //console.log("fetchJson");
-  let response = await fetch(HTML.jsonUrl);
-  jsonEntries = await response.json();
-  makeObjects(jsonEntries);
-  fetchHouses();
+  const response = await fetch(url);
+  const jsonEntries = await response.json();
+  callback(jsonEntries);
+  fetchList();
 }
 
 function makeObjects(jsonEntries) {
   jsonEntries.forEach(jsonStudent => {
     //console.log(jsonStudent);
-    studentObject = Object.create(Student);
+    const studentObject = Object.create(Student);
 
-    //Raw json data
-    //The whole string
-    const nameSplit = jsonStudent.fullname;
-    let gender = jsonStudent.gender;
-    let house = jsonStudent.house;
+    //Raw json data / The whole string
+    let fullString = jsonStudent.fullname.trim().toLowerCase();
+    let gender = jsonStudent.gender.trim().toLowerCase();
+    let house = jsonStudent.house.trim().toLowerCase();
 
-    //Make all characters lowercase
-    const smallCaps = nameSplit.toLowerCase();
-    const smallGender = gender.toLowerCase();
-    const smallHouse = house.toLowerCase();
-
-    //Trimmed string
-    let trimmedNames = smallCaps.trim();
-
-    //Make strings prettier
-    //Placeholding variable
-    const findCharacters = /(\b[a-z](?!\s))/g;
-    trimmedNames = trimmedNames.replace(findCharacters, function(capitalLetters) {
-      //Uppercaseletters
+    //replace the characters found by metacharacters
+    fullString = fullString.replace(/(\b[a-z](?!\s))/g, function(capitalLetters) {
       return capitalLetters.toUpperCase();
     });
-    gender = smallGender.replace(findCharacters, function(capitalLetters) {
-      //Uppercaseletters
+    gender = gender.replace(/(\b[a-z](?!\s))/g, function(capitalLetters) {
       return capitalLetters.toUpperCase();
     });
-    house = smallHouse.replace(findCharacters, function(capitalLetters) {
-      //Uppercaseletters
+    house = house.replace(/(\b[a-z](?!\s))/g, function(capitalLetters) {
       return capitalLetters.toUpperCase();
     });
 
     //find the first name in the string
-    const firstSpace = trimmedNames.indexOf(" ");
-    const first = trimmedNames.substring(0, firstSpace);
+    const firstSpace = fullString.indexOf(" ");
+    const first = fullString.substring(0, firstSpace);
 
     //Find the last name in the string
-    const lastSpace = trimmedNames.lastIndexOf(" ");
-    const last = trimmedNames.substring(lastSpace, trimmedNames.length);
+    const lastSpace = fullString.lastIndexOf(" ");
+    const last = fullString.substring(lastSpace + 1, fullString.length);
 
     //find the middel name in the string
-    let middle = trimmedNames.substring(firstSpace + 1, lastSpace);
+    let middle = fullString.substring(firstSpace + 1, lastSpace);
 
-    //Trim all words
-    let trimmedMiddel = middle.trim();
-    let trimmedLast = last.trim();
-    let trimmedFirst = first.trim();
-    let trimmedHouse = house.trim();
-    let trimmedGender = gender.trim();
-
-    //Find nickName and remove ""
-    //Search for " after the first character in trimmedMiddle
-    const findNickEnd = trimmedMiddel.indexOf('"', 1);
-    //Make a new string from 1 to findNickEnd (of trimmedMiddle)
-    const nick = trimmedMiddel.substring(1, findNickEnd);
+    //Find nickName and remove "". Search for " after the first character in middle
+    const findNickEnd = middle.indexOf('"', 1);
+    //Make a new string from 1 to findNickEnd (of middle)
+    const nick = middle.substring(1, findNickEnd);
 
     //Send to object
-    studentObject.fullName = trimmedNames;
-    studentObject.firstName = trimmedFirst;
-    studentObject.lastName = trimmedLast;
-    studentObject.gender = trimmedGender;
-    studentObject.theHouse = trimmedHouse;
-    const find = trimmedMiddel.substring(0, 1);
+    studentObject.fullName = fullString;
+    studentObject.firstName = first;
+    studentObject.lastName = last;
+    studentObject.gender = gender;
+    studentObject.theHouse = house;
+
+    const find = middle.substring(0, 1);
     if (find === '"' || find === "'") {
       studentObject.nickName = nick;
-      //console.log("Nickname");
-      console.log(nick);
     } else {
-      studentObject.middelName = trimmedMiddel;
-      //console.log("Middlename");
+      studentObject.middelName = middle;
     }
     allStudents.push(studentObject);
-    //console.log(studentObject);
   });
 }
 
-function fetchHouses() {
+function fetchList() {
   //console.log("fetchHouses");
   document.querySelector("#student_list").innerHTML = "";
 
@@ -150,12 +123,13 @@ function sort() {
   });
   this.classList.add("chosen");
   HTML.filter = this.dataset.kategori;
-  fetchJson();
+  //Calback function
+  fetchJson(HTML.jsonUrl, makeObjects);
 }
 function selectSort() {
   document.querySelector("select").addEventListener("change", function() {
     HTML.filter = event.target.value;
-    fetchJson();
+    fetchJson(HTML.jsonUrl, makeObjects);
     console.log("change");
   });
 }
@@ -174,7 +148,6 @@ function popUp(student) {
   document.querySelector(".pop_house").textContent = student.theHouse;
   //theme changes in relation to house in the json file
   document.querySelector(".popup").dataset.theme = student.theHouse;
-  const dataHouse = document.querySelector(".popup").dataset.house;
 }
 
 function close() {
