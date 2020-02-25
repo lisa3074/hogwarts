@@ -18,6 +18,7 @@
     </template>
     <header>
       <h1 class="heading">Student list</h1>
+      <button class="sort_ab" data-direction="asc">A → B</button>
       <nav class="sort_mobile">
         <select>
           <option value="Alle" class="option">Choose house &nbsp;&nbsp;</option>
@@ -28,7 +29,7 @@
         </select>
       </nav>
 
-      <nav class="sort">
+      <nav id="filter">
         <ul>
           <li class="filter alle" data-kategori="Alle">All students</li>
           <li class="filter" data-kategori="Gryffindor">Gryffindor</li>
@@ -37,14 +38,26 @@
           <li class="filter" data-kategori="Slytherin">Slytherin</li>
         </ul>
       </nav>
+
+    <nav id="sort">
+        <ul>
+          <li class="sort" data-add="prefect">Prefect</li>
+          <li class="sort" data-add="squad">Squad</li>
+          <li class="sort" data-add="otherNotations">Other notations</li>
+          <li class="sort" data-add="expelled">Expelled</li>
+          <li class="sort alle chosen_sort" data-add="Alle">All sorts</li>
+        </ul>
+      </nav> 
     </header>
+    <main>
     <section id="student_list"></section>
+  </main>
 
     <section data-theme="" class="popup hide">
       <div class="close">✕</div>
       <article class="popup_wrapper">
         <figure>
-          <img src="billeder/harry.jpg" alt="Harry Potter" class="image" />
+          <img src="" alt="" class="image"/>
           <figcaption class="caption"></figcaption>
         </figure>
         <div class="flex">
@@ -52,8 +65,6 @@
             <p>Name:</p>
             <h1 class="pop_name"></h1>
           </div>
-         
-
           <div class="text_wrapper">
             <p>Nickname:</p>
             <h2 class="pop_nick"></h2>
@@ -76,6 +87,6 @@
       </article>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script1.js"></script>
   </body>
 </html>

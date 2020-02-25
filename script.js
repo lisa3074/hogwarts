@@ -1,3 +1,6 @@
+//lastName.toLowerCas() + "_" + firstName.substring(0,1).toLowerCase + .png
+//if error use lastName.toLowerCase + "_" + firstName.toLowercase + .png
+
 "use strict";
 window.addEventListener("DOMContentLoaded", init);
 
@@ -16,8 +19,10 @@ const Student = {
 
 function init() {
   HTML.jsonUrl = "https://petlatkea.dk/2020/hogwarts/students.json";
-  HTML.sortButtons = document.querySelectorAll(".filter");
+  HTML.filterButtons = document.querySelectorAll(".filter");
+  HTML.sortButtons = document.querySelectorAll(".sort");
   HTML.filter = "Alle";
+  HTML.sort = "Alle";
   start();
 }
 
@@ -25,14 +30,18 @@ function start() {
   //console.log("start");
   document.querySelector(".popup").classList = "popup hide";
   document.querySelector(".alle").classList.add("chosen");
-  HTML.sortButtons.forEach(element => {
-    element.addEventListener("click", sort);
+  HTML.filterButtons.forEach(element => {
+    element.addEventListener("click", filter);
   });
-  selectSort();
+  HTML.sortButtons.forEach(element => {
+    element.addEventListener("click", secondFilterChosen);
+  });
+  selectFilter();
   close();
   //calls the async function with the jsonUrl and the function that should be called after the async,.
   fetchJson(HTML.jsonUrl, makeObjects);
 }
+
 //Uses the url parameter, so the url can change depending on the calling function.
 //Callback is called with the variable that is the json, which is sent on to the next function.
 async function fetchJson(url, callback) {
@@ -103,12 +112,13 @@ function fetchList() {
 
   //allStudents.shift();
   allStudents.forEach(student => {
+    console.log(HTML.filter);
     if (HTML.filter == student.theHouse || HTML.filter == "Alle") {
       const clone = document.querySelector(".temp").content.cloneNode(true);
       clone.querySelector(".house").textContent = student.theHouse;
       clone.querySelector(".name").textContent = student.fullName;
       clone.firstElementChild.addEventListener("click", function() {
-        popUp(student);
+        displayPopUp(student);
       });
       document.querySelector("#student_list").appendChild(clone);
       //console.log(student);
@@ -116,9 +126,9 @@ function fetchList() {
   });
 }
 
-function sort() {
+function filter() {
   //console.log("sort");
-  HTML.sortButtons.forEach(button => {
+  HTML.filterButtons.forEach(button => {
     button.classList.remove("chosen");
   });
   this.classList.add("chosen");
@@ -126,7 +136,7 @@ function sort() {
   //Calback function
   fetchJson(HTML.jsonUrl, makeObjects);
 }
-function selectSort() {
+function selectFilter() {
   document.querySelector("select").addEventListener("change", function() {
     HTML.filter = event.target.value;
     fetchJson(HTML.jsonUrl, makeObjects);
@@ -134,7 +144,15 @@ function selectSort() {
   });
 }
 
-function popUp(student) {
+function secondFilterChosen() {
+  console.log("sort");
+  HTML.sortButtons.forEach(button => {
+    button.classList.remove("chosen_sort");
+  });
+  this.classList.add("chosen_sort");
+}
+
+function displayPopUp(student) {
   //console.log("popUp");
   if ((student.middleName = "")) {
     document.querySelector(".pop_name").textContent = `${student.firstName} ${student.lastName}`;
