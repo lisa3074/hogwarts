@@ -4,7 +4,8 @@
   --secondary-color: #eee094;
 }
 
-[data-theme="Gryffindor"] {
+[data-theme="Gryffindor"],
+.promptbox {
   --primary-color: rgba(206, 182, 103);
   --third-color: rgba(236, 226, 191, 0.904);
   --secondary-color: #852222;
@@ -45,13 +46,14 @@ header {
   background-color: rgb(217, 185, 80);
   width: 100%;
   height: 10rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(151, 151, 151);
 }
 #student_list,
 main {
   display: block;
   padding-left: 5vw;
   background-color: rgb(250, 247, 239);
+  min-height: 55vh;
 }
 
 .heading {
@@ -61,7 +63,7 @@ main {
   color: #fff;
 }
 .student_wrapper {
-  padding: 3.5rem 0;
+  padding: 1.5rem 0;
   width: 100%;
   margin: 0 auto;
   border-radius: 2px;
@@ -73,9 +75,9 @@ main {
   cursor: pointer;
 }
 .wrapper {
-  position: absolute;
-  bottom: 1rem;
-  left: 0rem;
+  width: 70%;
+  flex-basis: 300px;
+  flex-grow: 1;
 }
 
 .student_wrapper h1,
@@ -99,7 +101,10 @@ main {
   margin-top: 2rem;
 }
 .student_wrapper {
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
+  justify-content: space-between;
 }
 
 .student_wrapper h1,
@@ -111,6 +116,23 @@ main {
 ul {
   display: none;
   max-width: 1200px;
+}
+
+.checkboxes {
+  width: 30%;
+  flex-basis: 170px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.check {
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+}
+
+.grey {
+  filter: grayscale(100%);
 }
 
 select {
@@ -129,7 +151,6 @@ select {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.733);
   background-color: var(--third-color);
   overflow-x: hidden;
   overflow-y: scroll;
@@ -152,6 +173,29 @@ select {
   border: 2px solid var(--secondary-color);
 }
 
+.notes {
+  width: 70%;
+  height: 75px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--third-color);
+
+  font-weight: 600;
+}
+.submit {
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  border: 1px solid var(--third-color);
+  border-radius: 5px;
+}
+
+.checked {
+  padding-left: 5vw;
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+  margin-bottom: 2rem;
+}
+
 .text_wrapper {
   display: flex;
   flex-wrap: nowrap;
@@ -165,7 +209,7 @@ select {
   flex-direction: column;
   flex-basis: 300px;
   flex-grow: 1;
-  height: 20vh;
+  height: auto;
 }
 
 .text_wrapper p {
@@ -230,6 +274,66 @@ figure {
   color: black;
 }
 
+.promptbox {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.598);
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.prompttext {
+  font-size: 1.2rem;
+}
+#heading {
+  line-height: 5rem;
+  font-size: 2rem;
+}
+
+.promptbox > article {
+  width: 80%;
+  height: 80%;
+  margin: 10% auto;
+  background-color: #fff;
+  position: relative;
+  padding: 3rem;
+  line-height: 2rem;
+  background-color: var(--third-color);
+  border: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.removedStudent,
+.addedStudent {
+  font-weight: 600;
+}
+
+.promptbox button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  margin: 1rem 1rem 0 0;
+  cursor: pointer;
+}
+.textNotes {
+  line-height: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  width: 200px;
+  white-space: pre-wrap;
+  padding-left: 2rem;
+}
+
+.size {
+  font-size: 1.5rem;
+}
+
 @media (min-width: 500px) {
   .pic {
     position: fixed;
@@ -239,6 +343,10 @@ figure {
 
   .popup {
     padding-bottom: 0;
+  }
+  .checkboxes {
+    text-align: right;
+    justify-content: flex-end;
   }
 }
 
@@ -267,13 +375,13 @@ figure {
   ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: right;
+    justify-items: flex-start;
     padding: 0;
     padding-left: 5vw;
     padding-top: 12.2rem;
     width: 95%;
   }
-
   #sort > ul {
     padding-top: 1.3rem;
   }
@@ -282,7 +390,7 @@ figure {
     display: inline-block;
     flex-basis: 135px;
     flex-grow: 1;
-    background-color: rgb(133, 124, 100);
+    background-color: #867d65;
     margin: 0;
     font-size: 0.9rem;
     font-weight: 600;
@@ -296,7 +404,8 @@ figure {
     text-transform: uppercase;
     font-family: sans-serif;
     text-align: center;
-    color: rgb(221, 221, 221);
+    color: #dddddd;
+    z-index: 0;
   }
 
   .sort_ab {
@@ -311,7 +420,7 @@ figure {
   }
 
   main {
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(151, 151, 151);
   }
 
   .popup_wrapper {
@@ -332,7 +441,7 @@ figure {
   }
 }
 
-@media (min-width: 952px) {
+@media (min-width: 827px) {
   .flex {
     margin-top: 2rem;
   }
@@ -347,6 +456,10 @@ figure {
 @media (min-width: 1000px) {
   ul {
     width: 80%;
+  }
+  #sort > ul {
+    position: absolute;
+    right: 10vw;
   }
   #student_list {
     max-width: 1200px;

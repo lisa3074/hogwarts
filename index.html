@@ -14,12 +14,29 @@
           <h1>Student: <span class="name"></span></h1>
           <h2>House: <span class="house"></span></h2>
         </div>
+
+        <div class="checkboxes">
+          <div>
+            <label>Expelled &nbsp; </label>
+            <div class="check" data-check="expelled">🚫</div>
+            <br />
+            <label>Squad &nbsp; </label>
+            <div class="check" data-check="squad">🎖</div>
+            <br />
+            <label>Prefect &nbsp; </label>
+            <div class="check" data-check="prefect">🏆</div>
+            <br />
+            <label>Other notations &nbsp; </label>
+            <div class="check" data-check="otherNotations">🧩</div>
+          </div>
+        </div>
       </article>
     </template>
+    <template> </template>
     <header>
       <h1 class="heading">Student list</h1>
       <button class="sort_ab" data-direction="asc">A → B</button>
-      <nav class="sort_mobile">
+      <nav class="filter_mobile">
         <select>
           <option value="Alle" class="option">Choose house &nbsp;&nbsp;</option>
           <option value="Gryffindor" class="option">Gryffindor</option>
@@ -39,7 +56,7 @@
         </ul>
       </nav>
 
-    <nav id="sort">
+      <nav id="sort">
         <ul>
           <li class="sort" data-add="prefect">Prefect</li>
           <li class="sort" data-add="squad">Squad</li>
@@ -47,19 +64,17 @@
           <li class="sort" data-add="expelled">Expelled</li>
           <li class="sort alle chosen_sort" data-add="Alle">All sorts</li>
         </ul>
-      </nav> 
+      </nav>
     </header>
     <main>
-    <section id="student_list"></section>
-  </main>
+      <section id="student_list"></section>
+      <p class="noStudents"></p>
+    </main>
 
     <section data-theme="" class="popup hide">
       <div class="close">✕</div>
       <article class="popup_wrapper">
-        <figure>
-          <img src="" alt="" class="image"/>
-          <figcaption class="caption"></figcaption>
-        </figure>
+        <img src="" alt="" class="image" />
         <div class="flex">
           <div class="text_wrapper">
             <p>Name:</p>
@@ -79,11 +94,38 @@
             <p>House:</p>
             <h2 class="pop_house"></h2>
           </div>
-          </div>
-          <div class="pic">
-            <img src="" alt="" class="crest" />
-          </div>
         </div>
+        <div class="checked">
+          <p class="expelled"><span class="size">🚫</span> Expelled</p>
+          <p class="squad"><span class="size">🎖</span> Inquisitorial squad</p>
+          <p class="prefect"><span class="size">🏆</span> Prefect</p>
+          <p class="OtherNotes"><span class="size grey">🧩</span> Other notations:</p>
+          <p class="textNotes"></p>
+          <form>
+            <!-- <input type="text" class="notes" /><br /> -->
+            <textarea rows="20" cols="50" class="notes"></textarea><br />
+
+            <input type="button" class="submit" value="Submit" />
+          </form>
+        </div>
+        <div class="pic">
+          <img src="" alt="" class="crest" />
+        </div>
+      </article>
+    </section>
+
+    <section class="promptbox hide">
+      <article>
+        <h2 id="heading">OH NO!</h2>
+        <p class="prompttext">
+          There can only be 2 prefects and only one of each gender.<br />
+          Would you like to remove <span class="removedStudent">another student</span> from the prefect list and add <span class="addedStudent">this student</span> instead ?
+        </p>
+        <p class="squadtext">
+          Sorry, only students from Slytherin kan be appointed the Inquisitorial squad.
+        </p>
+        <button class="no">No</button>
+        <button class="remove">Remove</button>
       </article>
     </section>
 

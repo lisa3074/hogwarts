@@ -1,0 +1,191 @@
+[
+  {
+    "fullname": "Pansy parkinson",
+    "gender": "girl",
+    "house": "slytherin",
+    "prefect": true
+  },
+  {
+    "fullname": "hannah Abbott",
+    "gender": "girl",
+    "house": " Hufflepuff "
+  },
+  {
+    "fullname": "Susan bones",
+    "gender": "girl",
+    "house": "hufflepuff",
+    "squad": true
+  },
+  {
+    "fullname": "Justin Finch-Fletchley",
+    "gender": "boy",
+    "house": "Hufflepuff",
+    "squad": true
+  },
+  {
+    "fullname": "Terry BOOT",
+    "gender": "boy",
+    "house": "RAVENCLAW"
+  },
+  {
+    "fullname": " zacharias smith",
+    "gender": "boy",
+    "house": " Hufflepuff ",
+    "squad": true
+  },
+  {
+    "fullname": "Ernest 'Ernie' Macmillan",
+    "gender": "boy",
+    "house": "hufflepuff"
+  },
+  {
+    "fullname": "megan Jones",
+    "gender": "girl",
+    "house": "Hufflepuff",
+    "squad": true
+  },
+  {
+    "fullname": " wayne hopkins",
+    "gender": "boy",
+    "house": "Hufflepuff",
+    "prefect": true,
+    "expelled": true
+  },
+  {
+    "fullname": "Leanne",
+    "gender": "girl",
+    "house": "hufflepuff",
+    "squad": true,
+    "expelled": true
+  },
+  {
+    "fullname": "Lavender brown",
+    "gender": "girl",
+    "house": "Gryffindor",
+    "expelled": true
+  },
+  {
+    "fullname": "Seamus finnigan ",
+    "gender": "boy",
+    "house": "gryffindor"
+  },
+  {
+    "fullname": "hermione jean Granger",
+    "gender": "girl",
+    "house": "Gryffindor"
+  },
+  {
+    "fullname": " neville longbottom",
+    "gender": "boy",
+    "house": "Gryffindor "
+  },
+  {
+    "fullname": "Parvati Patil",
+    "gender": "girl",
+    "house": "GRYFFINDOR"
+  },
+  {
+    "fullname": "harry James POTTER",
+    "gender": "boy",
+    "house": " GRYFFINDOR",
+    "expelled": true
+  },
+  {
+    "fullname": " Dean Thomas",
+    "gender": "boy",
+    "house": "gryffindor"
+  },
+  {
+    "fullname": "RONald Bilius weasley",
+    "gender": "boy",
+    "house": "Gryffindor"
+  },
+  {
+    "fullname": "Mandy brocklehurst",
+    "gender": "girl",
+    "house": "Ravenclaw",
+    "expelled": true,
+    "ohterNotations": "Et eller andet"
+  },
+  {
+    "fullname": "Padma Patil",
+    "gender": "girl",
+    "house": "ravenclaw",
+    "ohterNotations": "Et eller andet"
+  },
+  {
+    "fullname": "lisa Turpin",
+    "gender": "girl",
+    "house": " RAVENCLAW",
+    "squad": true,
+    "ohterNotations": "Et eller andet"
+  },
+  {
+    "fullname": "Stephen Cornfoot",
+    "gender": "boy",
+    "house": "Hufflepuff",
+    "squad": true
+  },
+  {
+    "fullname": "anthony goldstein",
+    "gender": "boy",
+    "house": "Ravenclaw"
+  },
+  {
+    "fullname": "Michael Corner",
+    "gender": "boy",
+    "house": "RAVENCLAW",
+    "squad": true
+  },
+  {
+    "fullname": " Kevin Entwistle",
+    "gender": "boy",
+    "house": "Ravenclaw"
+  },
+  {
+    "fullname": "Sue Li",
+    "gender": "girl",
+    "house": "ravenclaw"
+  },
+  {
+    "fullname": "draco lucius Malfoy",
+    "gender": "boy",
+    "house": "Slytherin",
+    "squad": true
+  },
+  {
+    "fullname": "Vincent Crabbe",
+    "gender": "boy",
+    "house": "slytherin"
+  },
+  {
+    "fullname": "Tracey davis",
+    "gender": "girl",
+    "house": "Slytherin"
+  },
+  {
+    "fullname": "gregory Goyle",
+    "gender": "boy",
+    "house": "Slytherin"
+  },
+  {
+    "fullname": "Millicent bulstrode",
+    "gender": "girl",
+    "house": "Slytherin"
+  },
+  {
+    "fullname": "theodore Nott",
+    "gender": "boy",
+    "house": "slYtherin"
+  },
+  {
+    "fullname": "Daphne Greengrass",
+    "gender": "girl",
+    "house": "Slytherin"
+  },
+  {
+    "fullname": " blaise Zabini",
+    "gender": "boy",
+    "house": "sLYTHERIN"
+  }
+]
