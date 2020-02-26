@@ -35,7 +35,8 @@
     <template> </template>
     <header>
       <h1 class="heading">Student list</h1>
-      <button class="sort_ab" data-direction="asc">A → B</button>
+      <button class="sort_ab" data-direction="asc">Name A → Z</button>
+      <button class="sortHouse_ab" data-direction="asc">House A → Z</button>
       <nav class="filter_mobile">
         <select>
           <option value="Alle" class="option">Choose house &nbsp;&nbsp;</option>
@@ -67,6 +68,7 @@
       </nav>
     </header>
     <main>
+      <p class="sortDisplay"></p>
       <section id="student_list"></section>
       <p class="noStudents"></p>
     </main>

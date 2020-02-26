@@ -92,11 +92,19 @@ main {
 
 #student_list,
 main {
-  padding: 0 5vw 2rem;
+  padding: 2rem 5vw 2rem;
   width: 100%;
   margin-top: 5rem;
 }
-
+.sortDisplay {
+  font-size: 1.1rem;
+  padding-left: 5vw;
+  position: absolute;
+  top: 2.5rem;
+  left: 5vw;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
 #student_list {
   margin-top: 2rem;
 }
@@ -408,7 +416,8 @@ figure {
     z-index: 0;
   }
 
-  .sort_ab {
+  .sort_ab,
+  .sortHouse_ab {
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -417,10 +426,16 @@ figure {
     font-weight: 600;
     border-radius: 5px;
     border: 1px solid rgb(136, 136, 136);
+    width: 150px;
+  }
+
+  .sortHouse_ab {
+    top: 4rem;
   }
 
   main {
     border-top: 1px solid rgb(151, 151, 151);
+    position: relative;
   }
 
   .popup_wrapper {

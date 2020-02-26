@@ -25,11 +25,13 @@ function init() {
   HTML.sortButton = document.querySelector(".sort_ab");
   HTML.filter = "Alle";
   HTML.sort = "Alle"; //???
+  HTML.sortList;
   HTML.filteredStudents = [];
   HTML.allStudents = [];
   HTML.direction;
   HTML.filterSecond = "Alle";
   HTML.notes;
+  HTML.fullName;
   start();
 }
 
@@ -50,6 +52,7 @@ function delegation() {
     element.addEventListener("click", secondFilterChosen);
   });
   HTML.sortButton.addEventListener("click", sort);
+
   document.querySelector("select").addEventListener("change", selectFilter);
 
   document.querySelector(".close").addEventListener("click", function() {
@@ -121,6 +124,8 @@ function makeObjects(jsonEntries) {
     studentObject.gender = gender;
     studentObject.theHouse = house;
     studentObject.prefrect = "";
+
+    HTML.fullName = studentObject.fullName;
 
     const find = middle.substring(0, 1);
     if (find === '"' || find === "'") {
@@ -207,21 +212,13 @@ function filterStudentsBySorts(filter) {
 
   return filteredStudents;
 }
-//Function til sortering A -> B
-/* function sortFiltered() {
-  console.log("sortFiltered");
-  HTML.filteredStudents = sortList(HTML.direction); //, HTML.direction);
-  fetchList(HTML.filteredStudents);
-} */
-
-//------------------- CHECKBOXES -------------------
 
 //------------- DISPLAY FUNCTIONS -------------
 
 function fetchList(studentObject) {
   console.log("fetchList");
   document.querySelector("#student_list").innerHTML = "";
-  console.log(HTML.filteredStudents);
+  //console.log(HTML.filteredStudents);
   studentObject.forEach(displayStudents);
 }
 
@@ -385,8 +382,14 @@ function displayPopUp(student) {
   document.querySelector(".popup").dataset.theme = student.theHouse;
 
   document.querySelector(".textNotes").textContent = student.textNotations;
-  document.querySelector(".submit").addEventListener("click", function() {
+  document.querySelector(".submit").addEventListener("click", displayNotations);
+
+  function displayNotations() {
+    document.querySelector(".submit").removeEventListener("click", displayNotations);
+    console.log("Save student");
+    console.log(student);
     student.textNotations = document.querySelector(".notes").value;
+    console.log(student);
     if (student.textNotations != "") {
       document.querySelector(".OtherNotes>.size").classList.remove("grey");
       student.otherNotations = true;
@@ -398,7 +401,7 @@ function displayPopUp(student) {
     setTimeout(() => {
       document.querySelector(".notes").value = "";
     }, 500);
-  });
+  }
 }
 
 function displayStudentDetails(student) {
@@ -427,35 +430,51 @@ function displayStudentDetails(student) {
 
 // ------------ SORTING FUNCTION (DUR IKKE)----------------
 
-/* function sort() {
+function sort() {
   console.log("sort");
   if (this.dataset.direction == "asc") {
+    document.querySelector(".sort_ab").textContent = "Name Z → A";
+    document.querySelector(".sortDisplay").textContent = "DISPLAYING: NAME A → Z";
     this.dataset.direction = "dsc";
   } else if (this.dataset.direction == "dsc") {
+    document.querySelector(".sort_ab").textContent = "Name A → Z";
+    document.querySelector(".sortDisplay").textContent = "DISPLAYING: NAME Z → A";
     this.dataset.direction = "asc";
   }
   HTML.direction = this.dataset.direction;
-  //HTML.sort = this.dataset.add;
-  const sortedList = sortList(HTML.sort, HTML.direction);
-  console.log(sortedList);
-  //fetchList(sortedList);
+  const sortedList = sortList(HTML.direction);
+  //console.log(sortedList);
+  fetchList(sortedList);
+  //ELLER
+  //HTML.filteredStudents = sortList(HTML.direction);
+  //fetchList(HTML.filteredStudents);
 }
-function sortList(sort, direction) {
+
+//Function til sortering A -> B (jeg tror denne gør mere eller mindre det samme som sortList())
+//function sortFiltered() {
+//console.log("sortFiltered");
+//HTML.filteredStudents = sortList(HTML.direction); //, HTML.direction);
+//fetchList(HTML.filteredStudents);
+//}
+
+function sortList(direction) {
   console.log("sortList");
   const sortedList = HTML.filteredStudents.sort(compareName);
 
   function compareName(a, b) {
-    console.log("compareName");
-    if (direction == "asc") {
-      console.log("asc");
-      //VIRKER IKKE
-      if (a[sort] < b[sort]) {
+    //console.log("compareName");
+    if (direction == "dsc") {
+      // console.log("asc");
+      if (a.fullName < b.fullName) {
         return -1;
       }
-    } else {
-      console.log("dsc");
+    } else if (direction == "asc") {
+      // console.log("asc");
+      if (b.fullName < a.fullName) {
+        return -1;
+      }
     }
   }
 
   return sortedList;
-} */
+}
