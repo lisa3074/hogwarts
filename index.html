@@ -21,7 +21,7 @@
             <div class="check" data-check="expelled">🚫</div>
             <br />
             <label>Squad &nbsp; </label>
-            <div class="check" data-check="squad">🎖</div>
+            <div class="check hack" data-check="squad">🎖</div>
             <br />
             <label>Prefect &nbsp; </label>
             <div class="check" data-check="prefect">🏆</div>
@@ -32,11 +32,10 @@
         </div>
       </article>
     </template>
-    <template> </template>
     <header>
       <h1 class="heading">Student list</h1>
-      <button class="sort_ab" data-direction="asc">Name A → Z</button>
-      <button class="sortHouse_ab" data-direction="asc">House A → Z</button>
+      <button class="sort_ab button" data-direction="asc">Name A → Z</button>
+      <button class="sortHouse_ab button" data-direction="asce">House A → Z</button>
       <nav class="filter_mobile">
         <select>
           <option value="Alle" class="option">Choose house &nbsp;&nbsp;</option>
@@ -44,6 +43,16 @@
           <option value="Hufflepuff" class="option">Hufflepuff</option>
           <option value="Ravenclaw" class="option">Ravenclaw</option>
           <option value="Slytherin" class="option">Slytherin</option>
+        </select>
+      </nav>
+
+      <nav class="sort_mobile">
+        <select>
+          <option value="Alle" class="option">Choose sort &nbsp;&nbsp;</option>
+          <option value="prefect" class="option">Prefect</option>
+          <option value="squad" class="option">Squad</option>
+          <option value="otherNotations" class="option">Other notations</option>
+          <option value="expelled" class="option">Expelled</option>
         </select>
       </nav>
 
@@ -76,25 +85,31 @@
     <section data-theme="" class="popup hide">
       <div class="close">✕</div>
       <article class="popup_wrapper">
-        <img src="" alt="" class="image" />
-        <div class="flex">
-          <div class="text_wrapper">
-            <p>Name:</p>
-            <h1 class="pop_name"></h1>
-          </div>
-          <div class="text_wrapper">
-            <p>Nickname:</p>
-            <h2 class="pop_nick"></h2>
-          </div>
+        <div class="imgText_wrapper">
+          <img src="" alt="" class="image" />
+          <div class="flex">
+            <div class="text_wrapper">
+              <p>Name:</p>
+              <h1 class="pop_name"></h1>
+            </div>
+            <div class="text_wrapper">
+              <p>Nickname:</p>
+              <h2 class="pop_nick"></h2>
+            </div>
 
-          <div class="text_wrapper">
-            <p>Gender:</p>
-            <h2 class="pop_gender"></h2>
-          </div>
+            <div class="text_wrapper">
+              <p>Gender:</p>
+              <h2 class="pop_gender"></h2>
+            </div>
 
-          <div class="text_wrapper">
-            <p>House:</p>
-            <h2 class="pop_house"></h2>
+            <div class="text_wrapper">
+              <p>House:</p>
+              <h2 class="pop_house"></h2>
+            </div>
+            <div class="text_wrapper">
+              <p>Blood status:</p>
+              <h2 class="pop_blood"></h2>
+            </div>
           </div>
         </div>
         <div class="checked">
@@ -124,10 +139,20 @@
           Would you like to remove <span class="removedStudent">another student</span> from the prefect list and add <span class="addedStudent">this student</span> instead ?
         </p>
         <p class="squadtext">
-          Sorry, only students from Slytherin kan be appointed the Inquisitorial squad.
+          Sorry, only students with the status pureblood or students from Slytherin kan be appointed the Inquisitorial squad.
         </p>
         <button class="no">No</button>
         <button class="remove">Remove</button>
+      </article>
+    </section>
+
+    <section class="noBox hide">
+      <article>
+        <h2 id="heading">Nah aaah!</h2>
+        <p class="noText">
+          Lisa remains forever!!!!!
+        </p>
+        <button class="argh">I LOVE LISA</button>
       </article>
     </section>
 

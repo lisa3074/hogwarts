@@ -5,7 +5,8 @@
 }
 
 [data-theme="Gryffindor"],
-.promptbox {
+.promptbox,
+.noBox {
   --primary-color: rgba(206, 182, 103);
   --third-color: rgba(236, 226, 191, 0.904);
   --secondary-color: #852222;
@@ -45,7 +46,7 @@ header {
   position: relative;
   background-color: rgb(217, 185, 80);
   width: 100%;
-  height: 10rem;
+  height: 15rem;
   border-bottom: 1px solid rgb(151, 151, 151);
 }
 #student_list,
@@ -54,6 +55,9 @@ main {
   padding-left: 5vw;
   background-color: rgb(250, 247, 239);
   min-height: 55vh;
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .heading {
@@ -94,7 +98,7 @@ main {
 main {
   padding: 2rem 5vw 2rem;
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 0rem;
 }
 .sortDisplay {
   font-size: 1.1rem;
@@ -107,6 +111,7 @@ main {
 }
 #student_list {
   margin-top: 2rem;
+  padding: 1rem 5vw 2rem;
 }
 .student_wrapper {
   display: flex;
@@ -148,9 +153,15 @@ select {
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 1rem;
-  margin: 1.5rem 0 0 5vw;
+  margin: 0.5rem 0 0 5vw;
   cursor: pointer;
   font-weight: 600;
+  width: 170px;
+  height: 29px;
+}
+
+.filter_mobile {
+  margin-top: 1rem;
 }
 
 .popup {
@@ -198,7 +209,7 @@ select {
 }
 
 .checked {
-  padding-left: 5vw;
+  padding-left: 4rem;
   font-size: 1.1rem;
   line-height: 2.5rem;
   margin-bottom: 2rem;
@@ -218,6 +229,7 @@ select {
   flex-basis: 300px;
   flex-grow: 1;
   height: auto;
+  padding-left: 4rem;
 }
 
 .text_wrapper p {
@@ -227,7 +239,8 @@ select {
 .pop_name,
 .pop_house,
 .pop_nick,
-.pop_gender {
+.pop_gender,
+.pop_blood {
   font-weight: 100;
   font-size: 1.1rem;
   padding-left: 5vw;
@@ -245,11 +258,17 @@ select {
   max-height: 300px;
   max-width: 400px;
   object-fit: cover;
-  margin: 2rem;
+  margin: 2rem 2rem 3rem 4rem;
   border: 1px solid var(--secondary-color);
   margin-bottom: 3rem;
-  flex-basis: 300px;
+  flex-basis: 200px;
   flex-grow: 1;
+}
+
+.popup p,
+.popup h2,
+.popup h1 {
+  padding-left: 0;
 }
 
 .popup .crest {
@@ -270,6 +289,7 @@ figure {
   right: 2rem;
   font-size: 2.5rem;
   cursor: pointer;
+  z-index: 10;
 }
 
 .chosen {
@@ -282,7 +302,8 @@ figure {
   color: black;
 }
 
-.promptbox {
+.promptbox,
+.noBox {
   width: 100vw;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.598);
@@ -299,7 +320,8 @@ figure {
   font-size: 2rem;
 }
 
-.promptbox > article {
+.promptbox > article,
+.noBox > article {
   width: 80%;
   height: 80%;
   margin: 10% auto;
@@ -318,7 +340,8 @@ figure {
   font-weight: 600;
 }
 
-.promptbox button {
+.promptbox button,
+.noBox button {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   border: 1px solid var(--secondary-color);
@@ -340,6 +363,46 @@ figure {
 
 .size {
   font-size: 1.5rem;
+}
+
+.imgText_wrapper {
+  margin-top: 2rem;
+}
+
+.sort_ab,
+.sortHouse_ab {
+  position: absolute;
+  top: 6.9rem;
+  right: 2rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid rgb(136, 136, 136);
+  width: 150px;
+}
+
+.sortHouse_ab {
+  top: 9.4rem;
+}
+
+@media (min-width: 425px) {
+  .sort_ab,
+  .sortHouse_ab {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid rgb(136, 136, 136);
+    width: 150px;
+  }
+
+  .sortHouse_ab {
+    top: 4.5rem;
+  }
 }
 
 @media (min-width: 500px) {
@@ -416,23 +479,6 @@ figure {
     z-index: 0;
   }
 
-  .sort_ab,
-  .sortHouse_ab {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    height: 2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 5px;
-    border: 1px solid rgb(136, 136, 136);
-    width: 150px;
-  }
-
-  .sortHouse_ab {
-    top: 4rem;
-  }
-
   main {
     border-top: 1px solid rgb(151, 151, 151);
     position: relative;
@@ -454,6 +500,11 @@ figure {
     bottom: 13vh;
     right: 15vw;
   }
+
+  #student_list,
+  main {
+    margin-top: 5rem;
+  }
 }
 
 @media (min-width: 827px) {
@@ -465,6 +516,23 @@ figure {
   .text_wrapper h2 {
     padding-left: 2rem;
     font-size: 1.4rem;
+  }
+  .popup p,
+  .popup h2,
+  .popup h1 {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 881px) {
+  .imgText_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+  }
+
+  .popup .image {
+    margin: 2rem 2rem 3rem 4rem;
   }
 }
 
