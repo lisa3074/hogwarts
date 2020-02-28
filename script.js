@@ -87,6 +87,14 @@ function delegation() {
     hackTheSystem();
   });
 
+  //SOURCE FOR SEARCH FUNCTION: https://stackoverflow.com/questions/36897978/js-search-using-keyup-event-on-input-tag?fbclid=IwAR24tcWciO4KrDAUf0twPqnqm0MJgNC0hRBB8jZPPiXx7i0B7kryyX4ygvc
+  const search = document.querySelector(".search");
+  search.addEventListener("keyup", function() {
+    console.log("keystroke");
+    const list = HTML.filteredStudents.filter(student => student.fullName.toLowerCase().includes(search.value.toLowerCase()));
+    fetchList(list);
+  });
+
   //calls the async function with the jsonUrl and the function that should be called after the async,.
   fetchJson(HTML.jsonUrl, makeObjects);
   fetchJson(HTML.jsonBlood, makeBlood);

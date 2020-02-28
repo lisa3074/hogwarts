@@ -335,6 +335,15 @@ figure {
   border-radius: 10px;
 }
 
+.search {
+  position: absolute;
+  width: 10.5rem;
+  height: 2rem;
+  top: 7rem;
+  right: 2rem;
+  border-radius: 5px;
+}
+
 .removedStudent,
 .addedStudent {
   font-weight: 600;
