@@ -34,7 +34,7 @@
     </template>
     <header>
       <h1 class="heading">Student list</h1>
-      <button class="sort_ab button" data-direction="asc">Name A → Z</button>
+      <button class="sort_ab button" data-direction="dsc">Name Z → A</button>
       <button class="sortHouse_ab button" data-direction="asce">House A → Z</button>
       <input type="text" class="search" placeholder="Search student" />
       <nav class="filter_mobile">
@@ -78,7 +78,7 @@
       </nav>
     </header>
     <main>
-      <p class="sortDisplay"></p>
+      <p class="sortDisplay">DISPLAYING: NAME A → Z</p>
       <section id="student_list"></section>
       <p class="noStudents"></p>
     </main>
@@ -156,7 +156,8 @@
         <button class="argh">I LOVE LISA</button>
       </article>
     </section>
-
+    <audio src="sound/alarm.mp3" class="sound"></audio>
+    <audio src="sound/siren.mp3" class="sound1"></audio>
     <script src="script.js"></script>
   </body>
 </html>

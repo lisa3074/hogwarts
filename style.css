@@ -46,7 +46,7 @@ header {
   position: relative;
   background-color: rgb(217, 185, 80);
   width: 100%;
-  height: 15rem;
+  height: 16rem;
   border-bottom: 1px solid rgb(151, 151, 151);
 }
 #student_list,
@@ -339,7 +339,7 @@ figure {
   position: absolute;
   width: 10.5rem;
   height: 2rem;
-  top: 7rem;
+  top: 11.8rem;
   right: 2rem;
   border-radius: 5px;
 }
@@ -393,25 +393,6 @@ figure {
 
 .sortHouse_ab {
   top: 9.4rem;
-}
-
-@media (min-width: 425px) {
-  .sort_ab,
-  .sortHouse_ab {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    height: 2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 5px;
-    border: 1px solid rgb(136, 136, 136);
-    width: 150px;
-  }
-
-  .sortHouse_ab {
-    top: 4.5rem;
-  }
 }
 
 @media (min-width: 500px) {
@@ -510,9 +491,31 @@ figure {
     right: 15vw;
   }
 
-  #student_list,
   main {
     margin-top: 5rem;
+  }
+  #student_list {
+    margin-top: 3rem;
+  }
+
+  .sort_ab,
+  .sortHouse_ab {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid rgb(136, 136, 136);
+    width: 150px;
+  }
+
+  .sortHouse_ab {
+    top: 4.5rem;
+  }
+  .search {
+    top: 7rem;
   }
 }
 
