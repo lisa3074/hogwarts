@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>STUDENT LIST</title>
+    <title>HOGWARTS STUDENT LIST</title>
   </head>
   <body class="index">
     <template class="temp">
@@ -14,7 +14,6 @@
           <h1>Student: <span class="name"></span></h1>
           <h2>House: <span class="house"></span></h2>
         </div>
-
         <div class="checkboxes">
           <div>
             <label>Expelled &nbsp; </label>
@@ -33,7 +32,8 @@
       </article>
     </template>
     <header>
-      <h1 class="heading">Student list</h1>
+      <h1 class="heading">Hogwarts</h1>
+      <p class="subtitle">School of Witchcraft and Wizardry</p>
       <button class="sort_ab button" data-direction="dsc">Name Z → A</button>
       <button class="sortHouse_ab button" data-direction="asce">House A → Z</button>
       <input type="text" class="search" placeholder="Search student" />
@@ -79,6 +79,7 @@
     </header>
     <main>
       <p class="sortDisplay">DISPLAYING: NAME A → Z</p>
+      <p class="amountofstudents">Of <span class="number"></span> students.</p>
       <section id="student_list"></section>
       <p class="noStudents"></p>
     </main>
@@ -127,14 +128,14 @@
           </form>
         </div>
         <div class="pic">
-          <img src="" alt="" class="crest" />
+          <img src="" alt="" class="profilepic" id="image" />
         </div>
       </article>
     </section>
 
     <section class="promptbox hide">
       <article>
-        <h2 id="heading">OH NO!</h2>
+        <h1 id="heading">OH NO!</h1>
         <p class="prompttext">
           There can only be 2 prefects and only one of each gender.<br />
           Would you like to remove <span class="removedStudent">another student</span> from the prefect list and add <span class="addedStudent">this student</span> instead ?
@@ -149,13 +150,16 @@
 
     <section class="noBox hide">
       <article>
-        <h2 id="heading">Nah aaah!</h2>
+        <h1 id="heading2">Nah aaah!</h1>
         <p class="noText">
           Lisa remains forever!!!!!
         </p>
         <button class="argh">I LOVE LISA</button>
       </article>
     </section>
+    <p class="hacked"></p>
+    <p class="hacked2"></p>
+    <p class="hacked3"></p>
     <audio src="sound/alarm.mp3" class="sound"></audio>
     <audio src="sound/siren.mp3" class="sound1"></audio>
     <script src="script.js"></script>
