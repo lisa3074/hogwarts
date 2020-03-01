@@ -344,11 +344,10 @@ select {
 .promptbox > article,
 .noBox > article {
   width: 80%;
-  height: 80%;
   margin: 10% auto;
   background-color: #fff;
   position: relative;
-  padding: 3rem;
+  padding: 3rem 3rem 6rem;
   line-height: 2rem;
   background-color: var(--third-color);
   border: 1px solid var(--primary-color);
