@@ -335,7 +335,8 @@ select {
 .prompttext {
   font-size: 1.2rem;
 }
-#heading {
+#heading,
+#heading2 {
   line-height: 5rem;
   font-size: 2rem;
 }
@@ -424,6 +425,7 @@ select {
   left: 0rem;
   text-align: center;
   width: 100%;
+  pointer-events: none;
 }
 
 .hacked2 {
